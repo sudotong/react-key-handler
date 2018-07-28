@@ -32,7 +32,7 @@ describe('isInput', () => {
 let window;
 describe('matchesKeyboardEvent', () => {
   describe('matches KeyboardEvent.key against', () => {
-    window = (new JSDOM(``, { runScripts: "dangerously" })).window;
+    window = (new JSDOM('', { runScripts: 'dangerously' })).window;
     const arrowUpValueEvent = new window.KeyboardEvent('keyup', {key: 'ArrowUp'});
 
     it('keyValue Props property', () => {
