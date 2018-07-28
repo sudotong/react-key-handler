@@ -17,13 +17,23 @@ describe('KeyHandler', () => {
     expect(el).to.be.blank();
   });
 
-  it('handles key up events when key value match', () => {
+  it.only('handles key up events when key value match', () => {
     const handler = sinon.spy();
-    mount(<KeyHandler keyValue={ARROW_LEFT} onKeyHandle={handler} />);
+    mount(<KeyHandler keyValue={'s'} onKeyHandle={handler} />);
 
-    triggerKeyEvent(KEYUP, undefined, ARROW_LEFT);
+    triggerKeyEvent(KEYUP, undefined, 's');
 
     expect(handler.calledOnce).to.equal(true);
+  });
+
+  it('handles more than one key value match', () => {
+    const handler = sinon.spy();
+    mount(<KeyHandler keyValue={[ARROW_LEFT, ARROW_RIGHT]} onKeyHandle={handler} />);
+
+    triggerKeyEvent(KEYUP, undefined, ARROW_LEFT);
+    triggerKeyEvent(KEYUP, undefined, ARROW_RIGHT);
+
+    expect(handler.calledTwice).to.equal(true);
   });
 
   it('handles key up events when key code match', () => {

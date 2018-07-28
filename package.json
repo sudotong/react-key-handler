@@ -1,20 +1,26 @@
 {
-  "name": "react-key-handler",
-  "version": "1.1.0",
+  "name": "@gforge/react-key-handler",
+  "version": "2.0.0",
   "description": "React component to handle keyboard events",
   "homepage": "https://github.com/ayrton/react-key-handler",
-  "author": {
-    "name": "Ayrton De Craene",
-    "email": "im@ayrton.be",
-    "url": "https://github.com/ayrton"
-  },
+  "contributors": [
+    {
+      "name": "Ayrton De Craene",
+      "email": "im@ayrton.be",
+      "url": "https://github.com/ayrton"
+    }, {
+      "name": "Max Gordon",
+      "email": "max@gforge.se",
+      "url": "https://github.com/gforge"
+    }
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/ayrton/react-key-handler.git"
+    "url": "git://github.com/gforge/react-key-handler.git"
   },
   "bugs": {
-    "url": "https://github.com/ayrton/react-key-handler/issues"
+    "url": "https://github.com/gforge/react-key-handler/issues"
   },
   "main": "dist/index.js",
   "scripts": {

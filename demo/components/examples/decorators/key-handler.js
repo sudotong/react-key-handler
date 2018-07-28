@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-import {keyHandler, KEYPRESS} from '../../../../lib';
+import {keyToggleHandler, KEYPRESS} from '../../../../lib';
 
 type Props = {
   keyValue: ?string,
@@ -26,4 +26,4 @@ function Demo({keyValue}: Props) {
   );
 }
 
-export default keyHandler({keyEventName: KEYPRESS, keyValue: 's'})(Demo);
+export default keyToggleHandler({keyEventName: KEYPRESS, keyValue: 's'})(Demo);
