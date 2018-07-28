@@ -7,17 +7,20 @@ module.exports = {
     filename: 'bundle.js',
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: {
+          loader: 'babel-loader',
+        },
         exclude: /node_modules/,
       },
-    ],
-    preLoaders: [
+      // Should be a pre-loader and probably b4 babel but can't get it to work :-(
       {
         test: /\.js$/,
-        loader: 'eslint-loader',
+        use: {
+          loader: 'eslint-loader',
+        },
         exclude: /node_modules/,
       },
     ],

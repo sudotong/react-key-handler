@@ -21,7 +21,7 @@
     "build": "webpack --config ./webpack.build.config.js --mode production",
     "clean": "rimraf dist",
     "prepublish": "npm run clean && npm run build",
-    "start": "webpack-dev-server --devtool eval --progress --colors --hot --content-base demo/",
+    "start": "webpack-dev-server --devtool eval --progress --colors --hot --mode development --content-base demo/",
     "test": "npm run test:lint && npm run test:unit && npm run test:flow",
     "test:flow": "flow check",
     "test:lint": "eslint demo/ lib/ test/",
@@ -58,7 +58,7 @@
     "rimraf": "^2.6.2",
     "sinon": "^6.1.4",
     "webpack": "^4.16.3",
-    "webpack-command": "^0.4.1",
+    "webpack-cli": "^3.1.0",
     "webpack-dev-server": "^3.1.5"
   },
   "peerDependencies": {
