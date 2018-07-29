@@ -4,7 +4,7 @@ import {expect} from 'chai';
 import {mount, render} from 'enzyme';
 import triggerKeyEvent from './helpers/triggerKeyEvent';
 
-import KeyHandler, {KEYUP, KEYDOWN} from 'key-handler';
+import KeyHandler, {KEYUP, KEYDOWN} from '../../lib';
 
 const M = 77;
 const S = 83;
@@ -17,7 +17,7 @@ describe('KeyHandler', () => {
     expect(el).to.be.blank();
   });
 
-  it.only('handles key up events when key value match', () => {
+  it('handles key up events when key value match', () => {
     const handler = sinon.spy();
     mount(<KeyHandler keyValue={'s'} onKeyHandle={handler} />);
 
@@ -32,6 +32,7 @@ describe('KeyHandler', () => {
 
     triggerKeyEvent(KEYUP, undefined, ARROW_LEFT);
     triggerKeyEvent(KEYUP, undefined, ARROW_RIGHT);
+    triggerKeyEvent(KEYUP, undefined, 's');
 
     expect(handler.calledTwice).to.equal(true);
   });
@@ -81,7 +82,10 @@ describe('KeyHandler', () => {
     expect(handler.calledOnce).to.equal(true);
   });
 
-  it('prioritizes key value over code', () => {
+  // This make little sense - a user will not understand that there is a priority
+  // the user wil most likely expect that the function gets called if any
+  // of the matching criteria match.
+  it.skip('prioritizes key value over code', () => {
     const handler = sinon.spy();
     mount(<KeyHandler keyCode={M} keyValue={ARROW_LEFT} onKeyHandle={handler} />);
 

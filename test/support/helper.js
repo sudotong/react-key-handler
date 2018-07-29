@@ -3,8 +3,6 @@ import chaiEnzyme from 'chai-enzyme';
 import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { JSDOM } from 'jsdom';
-import path from 'path';
-import requirePaths from 'app-module-path';
 
 const jsdom = new JSDOM('<!doctype html><html><body></body></html>');
 const { window } = jsdom;
@@ -25,10 +23,6 @@ global.navigator = {
   userAgent: 'node.js',
 };
 copyProps(window, global);
-
-requirePaths.addPath(
-  path.join(__dirname, '..', '..', 'lib')
-);
 
 configure({ adapter: new Adapter() });
 
