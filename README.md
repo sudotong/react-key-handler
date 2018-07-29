@@ -82,7 +82,7 @@ The prop types of the `KeyHandler` component are:
 | code         | string   | yes __\*__ |           | Any given [KeyboardEvent.code]         |
 | keyCode&dagger;     | number   | yes __\*__ |           | Any given [KeyboardEvent.keyCode]      |
 
-__\*__ You should pass only one of these two props: `keyValue` or `keyCode`. [Which one do I pick?](#keyvalue-keycode)
+__\*__ You should pass at least one of these props.
 
 &dagger; _Note_ that the keyCode is frequently browser specific and has therefore be set as
 deprecated, see [MDN for details](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)
@@ -135,7 +135,7 @@ The prop types of the `KeyHandler` component are:
 | keyCode&dagger;     | number   | yes __\*__ |           | Any given [KeyboardEvent.keyCode]      |
 | onKeyHandle  | function | yes        |           | Function that is called when they key is handled |
 
-__\*__ You should pass only one of these two props: `keyValue` or `keyCode`. [Which one do I pick?](#keyvalue-keycode)
+__\*__ You should pass at least one of these props.
 
 &dagger; _Note_ that the keyCode is frequently browser specific and has therefore be set as
 deprecated, see [MDN for details](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode)
@@ -163,12 +163,8 @@ The three available key events are
              the modifier keys. The value is a string specific to the key, e.g. 'Digit0'
 - `keyCode`  This is similar to code but numeric and also _deprecated_.
 
-We recommend you to use the new Web standard
-[KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)
-or the
-[KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code)
-over the deprecated
-[KeyboardEvent.keyCode](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode).
+We recommend you to use the new Web standard [KeyboardEvent.key] or the [KeyboardEvent.code]
+over the deprecated [KeyboardEvent.keyCode].
 
 Note that in __React__ `key` is a reserved property, and thus we use `keyValue` when referring
 to the `key` property.
@@ -244,5 +240,6 @@ to the [Contributor Covenant](http://contributor-covenant.org/) code of conduct.
 
 [W3C Working Draft]: https://www.w3.org/TR/DOM-Level-3-Events-key/
 [KeyboardEvent.key]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key
+[KeyboardEvent.code]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/code
 [KeyboardEvent.keyCode]: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/keyCode
 [key]: https://facebook.github.io/react/docs/create-fragment.html
