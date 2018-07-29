@@ -3,6 +3,7 @@
 import React from 'react';
 
 import {keyToggleHandler, KEYPRESS} from '../../../../lib';
+import ExampleBox from '../ExampleBox';
 
 type Props = {
   keyValue: ?string,
@@ -11,7 +12,7 @@ type Props = {
 
 function Demo({keyValue}: Props) {
   return (
-    <div>
+    <ExampleBox>
       <h2>Decorator example:</h2>
 
       <p>Press <code>s</code> to <strong>open</strong> the menu.</p>
@@ -22,7 +23,14 @@ function Demo({keyValue}: Props) {
           <li>world</li>
         </ol>
       }
-    </div>
+
+      <p>
+        Code:
+      </p>
+      <pre>
+        {'keyToggleHandler({keyEventName: KEYPRESS, keyValue: \'s\'})(Component)'}
+      </pre>
+    </ExampleBox>
   );
 }
 

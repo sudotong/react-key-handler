@@ -1,6 +1,7 @@
 /* @flow */
 
 import React from 'react';
+import ExampleBox from '../ExampleBox';
 
 type State = {
   keyValue: ?string,
@@ -11,7 +12,7 @@ export default class Keypress extends React.Component<{||}, State> {
 
   render() {
     return (
-      <div>
+      <ExampleBox>
         <h2>Input onKeyPress example:</h2>
 
         <p>
@@ -26,7 +27,26 @@ export default class Keypress extends React.Component<{||}, State> {
             <li>world</li>
           </ol>
         }
-      </div>
+
+        <p>
+          Code:
+        </p>
+        <pre>{`
+state: State = { keyValue: null };
+
+render() {
+  ...
+  <input onKeyPress={this.handleKeyPress} />
+  ...
+}
+
+handleKeyPress = ({key}: SyntheticKeyboardEvent<HTMLInputElement>) => {
+  const keyValue = this.state.keyValue === key ? null : key;
+
+  this.setState({ keyValue });
+};`}
+        </pre>
+      </ExampleBox>
     );
   }
 

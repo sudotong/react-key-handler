@@ -2,6 +2,7 @@
 
 import React from 'react';
 
+import ExampleBox from '../ExampleBox';
 import KeyHandler, {KEYPRESS} from '../../../../lib';
 
 type State = {
@@ -15,9 +16,8 @@ export default class Component extends React.Component<{||}, State> {
     const { showMenu } = this.state;
 
     return (
-      <div>
+      <ExampleBox>
         <KeyHandler keyEventName={KEYPRESS} keyValue="s" onKeyHandle={this.toggleMenu} />
-
         <h2>Component example:</h2>
 
         <p>Press <code>s</code> to <strong>toggle</strong> the menu.</p>
@@ -28,7 +28,19 @@ export default class Component extends React.Component<{||}, State> {
             <li>world</li>
           </ol>
         }
-      </div>
+
+        <p>
+          Code:
+        </p>
+        <pre>
+          {`
+  <KeyHandler
+    keyEventName={KEYPRESS}
+    keyValue="s"
+    onKeyHandle={this.toggleMenu}
+  />`}
+        </pre>
+      </ExampleBox>
     );
   }
 

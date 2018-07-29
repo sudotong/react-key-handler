@@ -3,6 +3,7 @@
 import React from 'react';
 
 import {keyToggleHandler, KEYPRESS} from '../../../../lib';
+import ExampleBox from '../ExampleBox';
 
 type Props = {
   keyValue: ?string,
@@ -10,7 +11,7 @@ type Props = {
 
 function Default({keyValue}: Props) {
   return (
-    <div>
+    <ExampleBox>
       <h2>Input example:</h2>
 
       <p>
@@ -26,7 +27,7 @@ function Default({keyValue}: Props) {
           <li>world</li>
         </ol>
       }
-    </div>
+    </ExampleBox>
   );
 }
 
