@@ -1,6 +1,8 @@
 /* @flow */
 
 import React from 'react';
+import SyntaxHighlighter from 'react-syntax-highlighter/prism';
+import { light } from 'react-syntax-highlighter/styles/prism';
 
 import {keyToggleHandler, KEYPRESS} from '../../../../lib';
 import ExampleBox from '../ExampleBox';
@@ -27,6 +29,11 @@ function Default({keyValue}: Props) {
           <li>world</li>
         </ol>
       }
+      
+      <h3>Code:</h3>
+      <SyntaxHighlighter language='javascript' style={light}>
+        {'keyToggleHandler({keyEventName: KEYPRESS, keyValue: \'s\'})(Component)'}
+      </SyntaxHighlighter>
     </ExampleBox>
   );
 }

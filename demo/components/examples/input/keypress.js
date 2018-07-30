@@ -2,6 +2,8 @@
 
 import React from 'react';
 import ExampleBox from '../ExampleBox';
+import SyntaxHighlighter from 'react-syntax-highlighter/prism';
+import { light } from 'react-syntax-highlighter/styles/prism';
 
 type State = {
   keyValue: ?string,
@@ -28,11 +30,9 @@ export default class Keypress extends React.Component<{||}, State> {
           </ol>
         }
 
-        <p>
-          Code:
-        </p>
-        <pre>{`
-state: State = { keyValue: null };
+        <h3>Code:</h3>
+        <SyntaxHighlighter language='javascript' style={light}>
+          {`state: State = { keyValue: null };
 
 render() {
   ...
@@ -45,7 +45,7 @@ handleKeyPress = ({key}: SyntheticKeyboardEvent<HTMLInputElement>) => {
 
   this.setState({ keyValue });
 };`}
-        </pre>
+        </SyntaxHighlighter>
       </ExampleBox>
     );
   }

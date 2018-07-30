@@ -3,14 +3,28 @@
 import React from 'react';
 import ExampleBox from '../ExampleBox';
 
+type code = {| code: string, value: string |}
 type State = {
-  code: {| code: string, value: string |}[],
+  codes: code[],
 };
 
 export default class CodeExplore extends React.Component<{||}, State> {
-  state: State = { code: [] };
+  state: State = { codes: [] };
 
   render() {
+    const { codes } = this.state;
+    const undefCodes: Array<code | void> = [undefined, undefined, undefined];
+    const elements = undefCodes
+      .concat(codes)
+      .reverse()
+      .slice(0, 3)
+      .map((code, i) => {
+        if (code === undefined) {
+          return <li key={i}>...</li>;
+        }
+        return <li key={i}>{code.code} =&gt; {code.value}</li>;
+      });
+
     return (
       <ExampleBox>
         <h2>Input&nbsp;
@@ -26,28 +40,24 @@ export default class CodeExplore extends React.Component<{||}, State> {
           Last 3 values (code =&gt; value):
         </p>
         <ol>
-          {this.state.code
-            .reverse()
-            .map((c, i) =>
-              <li key={i}>{c.code} =&gt; {c.value}</li>
-            )}
+          {elements}
         </ol>
       </ExampleBox>
     );
   }
 
   handleKeyPress = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    const {code} = this.state;
+    const {codes} = this.state;
 
-    code.push({
+    codes.push({
       // $FlowFixMe
       code: e.nativeEvent.code,
       value: e.key,
     });
-    if (code.length > 3) {
-      code.shift();
+    if (codes.length > 3) {
+      codes.shift();
     }
 
-    this.setState({ code });
+    this.setState({ codes });
   };
 }

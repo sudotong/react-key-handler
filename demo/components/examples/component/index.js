@@ -1,6 +1,8 @@
 /* @flow */
 
 import React from 'react';
+import SyntaxHighlighter from 'react-syntax-highlighter/prism';
+import { light } from 'react-syntax-highlighter/styles/prism';
 
 import ExampleBox from '../ExampleBox';
 import KeyHandler, {KEYPRESS} from '../../../../lib';
@@ -29,17 +31,14 @@ export default class Component extends React.Component<{||}, State> {
           </ol>
         }
 
-        <p>
-          Code:
-        </p>
-        <pre>
-          {`
-  <KeyHandler
-    keyEventName={KEYPRESS}
-    keyValue="s"
-    onKeyHandle={this.toggleMenu}
-  />`}
-        </pre>
+        <h3>Code:</h3>
+        <SyntaxHighlighter language='javascript' style={light}>
+          {`<KeyHandler
+  keyEventName={KEYPRESS}
+  keyValue="s"
+  onKeyHandle={this.toggleMenu}
+/>`}
+        </SyntaxHighlighter>
       </ExampleBox>
     );
   }
