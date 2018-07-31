@@ -36,7 +36,6 @@
     "handler"
   ],
   "devDependencies": {
-    "app-module-path": "^2.2.0",
     "babel-core": "^6.26.3",
     "babel-eslint": "^8.2.6",
     "babel-loader": "^7.1.5",
@@ -65,7 +64,7 @@
     "webpack-dev-server": "^3.1.5"
   },
   "peerDependencies": {
-    "react": "^0.14.0 || ^15.0.0-0 || ^16.0.0-0"
+    "react": "^16.2.0-0"
   },
   "dependencies": {
     "exenv": "^1.2.0",
