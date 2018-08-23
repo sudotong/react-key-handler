@@ -1,7 +1,6 @@
 /* @flow */
 
 import React from 'react';
-
 import InputElement from './examples/input/default';
 import InputElementKeypress from './examples/input/keypress';
 import KeyHandlerComponent from './examples/component';
@@ -17,13 +16,16 @@ export default function App() {
   return (
     <React.Fragment>
       <h1>
-        <a href="https://github.com/ayrton/react-key-handler" target="_blank" rel="noopener noreferrer" >
+        <a
+          href="https://github.com/ayrton/react-key-handler"
+          target="_blank"
+          rel="noopener noreferrer">
           react-key-handler
         </a>
       </h1>
 
       <KeyHandlerDecorator />
-      <KeyToggleHandlerDecorator/>
+      <KeyToggleHandlerDecorator />
       <KeyHandlerComponent />
       <InputElement />
       <InputElementKeypress />

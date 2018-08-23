@@ -1,11 +1,32 @@
 import babel from 'rollup-plugin-babel';
+import replace from 'rollup-plugin-replace';
 import resolve from 'rollup-plugin-node-resolve';
+import { sizeSnapshot } from 'rollup-plugin-size-snapshot';
+import { terser } from 'rollup-plugin-terser';
 
 const input = 'lib/index';
 const external = ['exenv', 'prop-types', 'react'];
 
+const globals = {
+  'prop-types': 'PropTypes',
+  exenv: 'exenv',
+  react: 'React',
+};
+
 const babelOptions = {
+  babelrc: false,
   exclude: '**/node_modules/**',
+  presets: [
+    [
+      'env',
+      {
+        modules: false,
+      },
+    ],
+    'react',
+    'stage-1',
+  ],
+  plugins: ['external-helpers', 'transform-class-properties'],
 };
 
 export default [
@@ -15,16 +36,34 @@ export default [
       file: 'dist/umd/index.js',
       format: 'umd',
       name: 'ReactKeyHandler',
-      globals: {
-        'prop-types': 'PropTypes',
-        exenv: 'exenv',
-        react: 'React',
-      },
+      globals,
     },
     external,
-    plugins: [resolve(), babel(babelOptions)],
+    plugins: [
+      resolve(),
+      babel(babelOptions),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('development') }),
+      sizeSnapshot(),
+    ],
   },
 
+  {
+    input,
+    output: {
+      file: 'dist/umd/index.min.js',
+      format: 'umd',
+      name: 'ReactKeyHandler',
+      globals,
+    },
+    external,
+    plugins: [
+      resolve(),
+      babel(babelOptions),
+      replace({ 'process.env.NODE_ENV': JSON.stringify('production') }),
+      sizeSnapshot(),
+      terser(),
+    ],
+  },
   {
     input,
     output: {
@@ -32,7 +71,7 @@ export default [
       format: 'cjs',
     },
     external,
-    plugins: [resolve(), babel(babelOptions)],
+    plugins: [resolve(), babel(babelOptions), sizeSnapshot()],
   },
 
   {
@@ -42,6 +81,6 @@ export default [
       format: 'esm',
     },
     external,
-    plugins: [resolve(), babel(babelOptions)],
+    plugins: [resolve(), babel(babelOptions), sizeSnapshot()],
   },
 ];

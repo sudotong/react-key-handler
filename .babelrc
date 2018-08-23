@@ -1,13 +1,4 @@
 {
-  "presets": [
-    [
-      "env",
-      {
-        "modules": false
-      }
-    ],
-    "react",
-    "stage-1"
-  ],
-  "plugins": ["external-helpers", "transform-class-properties"]
+  "presets": ["env", "react", "stage-1"],
+  "plugins": ["transform-class-properties"]
 }
