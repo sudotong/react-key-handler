@@ -17,7 +17,7 @@ React component to handle keyboard events (such as `keyup`, `keydown` & `keypres
 	2. [Component](#component)
 	3. [Form key handling](#form-key-handling)
 3. [Key event names](#key-event-names)
-4. [`keyValue'`, `code` and `keyCode`](#keyvalue-code-and-keycode)
+4. [`keyValue`, `code` and `keyCode`](#keyvalue-code-and-keycode)
 5. [Development](#development)
 	1. [Setup](#setup)
 	2. [Getting started](#getting-started)
@@ -154,7 +154,7 @@ React does a fine job supporting these already via [keyboard events](https://rea
 
 TODO: explain the differences between the different key events.
 
-## `keyValue'`, `code` and `keyCode`
+## `keyValue`, `code` and `keyCode`
 
 The three available key events are
 
