@@ -11,19 +11,25 @@ React component to handle keyboard events (such as `keyup`, `keydown` & `keypres
 
 ## Table of Contents
 
-1. [Installation](#installation)
-1. [Usage](#usage)
-  1. [Higher-order Components](#higher-order-components)
-  1. [Component](#component)
-  1. [Form key handling](#form-key-handling)
-1. [Key event names](#key-event-names)
-1. [`keyValue'`, `code` and `keyCode`](#keyvalue-code-and-keycode)
-1. [Development](#development)
-  1. [Setup](#setup)
-  1. [Getting started](#getting-started)
-  1. [Tests](#tests)
-1. [Contributing](#contributing)
-1. [License](#license)
+<!-- TOC depthFrom:2 depthTo:6 withLinks:1 updateOnSave:1 orderedList:1 -->
+
+1. [Testimonials](#testimonials)
+2. [Table of Contents](#table-of-contents)
+3. [Installation](#installation)
+4. [Usage](#usage)
+	1. [Higher-order Components](#higher-order-components)
+	2. [Component](#component)
+	3. [Form key handling](#form-key-handling)
+5. [Key event names](#key-event-names)
+6. [`keyValue'`, `code` and `keyCode`](#keyvalue-code-and-keycode)
+7. [Development](#development)
+	1. [Setup](#setup)
+	2. [Getting started](#getting-started)
+	3. [Tests](#tests)
+8. [Contributing](#contributing)
+9. [License](#license)
+
+<!-- /TOC -->
 
 ## Installation
 
