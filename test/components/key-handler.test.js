@@ -19,9 +19,9 @@ describe('KeyHandler', () => {
 
   it('handles key up events when key value match', () => {
     const handler = sinon.spy();
-    mount(<KeyHandler keyValue={'s'} onKeyHandle={handler} />);
+    mount(<KeyHandler keyValue={ARROW_LEFT} onKeyHandle={handler} />);
 
-    triggerKeyEvent(KEYUP, undefined, 's');
+    triggerKeyEvent(KEYUP, undefined, ARROW_LEFT);
 
     expect(handler.calledOnce).to.equal(true);
   });

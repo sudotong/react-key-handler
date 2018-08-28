@@ -158,7 +158,7 @@ TODO: explain the differences between the different key events.
 
 The three available key events are
 
-- `key`      This corresponds to the true value. This is the value of the key pressed
+- `keyValue` This corresponds to the true value. This is the value of the key pressed
              by the user while taking into considerations the state of modifier keys
              such as the `shiftKey` as well as the keyboard locale/layout
 - `code`     This corresponds to the physical key on the keyboard (as opposed to the
